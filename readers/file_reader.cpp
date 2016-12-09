@@ -1,18 +1,18 @@
-#include "config_reader.h"
+#include "file_reader.h"
 
 namespace ConfigParser {
 
-    ConfigReader::ConfigReader(std::string configPath) {
-      this->configPath = configPath;
+    FileReader::FileReader(std::string filePath) {
+      this->filePath = filePath;
       localFilesystemHandle = new LocalFileSystem("local");
     }
 
-    ConfigReader::~ConfigReader(void) {
+    FileReader::~FileReader(void) {
         delete localFilesystemHandle;
     }
 
-    unsigned int ConfigReader::read(char * buffer, unsigned int bufferSize) {
-      FILE * file = fopen(configPath.c_str(), "r");
+    unsigned int FileReader::read(char * buffer, unsigned int bufferSize) {
+      FILE * file = fopen(filePath.c_str(), "r");
 
       if (!file) {
         buffer[0] = '\0';

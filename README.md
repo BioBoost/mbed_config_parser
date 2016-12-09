@@ -103,7 +103,6 @@ Example code:
 ConfigParser::FileReader reader("/local/config.jsn");
 JsonDeviceConfigurationParser parser(&reader);
 DeviceConfiguration *devConfig = parser.parse();
-SampleConfigUser configUser(devConfig);
 
 printf("Version = %s\r\n", devConfig->version.c_str());
 printf("Description = %s\r\n", devConfig->description.c_str());
@@ -134,7 +133,6 @@ const std::string DEFAULT_DEVICE_CONFIG = "{ \
 ConfigParser::StringReader reader(&DEFAULT_DEVICE_CONFIG);
 JsonDeviceConfigurationParser parser(&reader);
 DeviceConfiguration *devConfig = parser.parse();
-SampleConfigUser configUser(devConfig);
 
 printf("Version = %s\r\n", devConfig->version.c_str());
 printf("Description = %s\r\n", devConfig->description.c_str());
